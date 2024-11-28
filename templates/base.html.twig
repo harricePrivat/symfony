@@ -13,7 +13,81 @@
         {% endblock %}
     </head>
     <body>
+     <nav id="navbar" class=" mb-2 bg-gray-700 text-white fixed w-full top-0 z-50 transition duration-300">
+  <div class="container mx-auto flex justify-between items-center px-4 py-2">
+    <a href="#" id="title" class="text-xl font-bold">Symfony</a>
+    <div class="hidden md:flex space-x-4">
+      <a href="#home" id="accueil" class="hover:text-gray-400">Accueil</a>
+      <a href="#about" id="propos" class="hover:text-gray-400">À propos</a>
+      <a href="#services" id="services" class="hover:text-gray-400">Services</a>
+      <a href="#contact" id="contact" class="hover:text-gray-400">Contact</a>
+    </div>
+    <button id="menu-toggle" class="md:hidden">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<div id="menu" class="hidden md:hidden bg-gray-700 h-full">
+  <a href="#home" class="bg-white block px-4 py-2 hover:bg-red-800">Accueil</a>
+  <a href="#about" class="bg-white block px-4 py-2 hover:bg-red-800 hover:text-white">À propos</a>
+  <a href="#services" class="bg-white block px-4 py-2 hover:bg-red-800 hover:text-white">Services</a>
+  <a href="#contact" class="bg-white block px-4 py-2 hover:bg-red-800 hover:text-white">Contact</a>
+</div>
+
         {% block body %}{% endblock %}
+
+  <footer class="bg-gray-900 text-white py-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section principale -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- À propos -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">À propos</h3>
+        <p class="text-gray-400">
+          Bienvenue dans notre site, où nous vous fournissons les meilleures solutions adaptées à vos besoins.
+        </p>
+      </div>
+
+      <!-- Liens rapides -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Liens rapides</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="text-gray-400 hover:text-white">Accueil</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white">À propos</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white">Services</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Contact</h3>
+        <ul class="space-y-2 text-gray-400">
+          <li><span class="font-medium">Email:</span> contact@example.com</li>
+          <li><span class="font-medium">Téléphone:</span> +1 234 567 890</li>
+          <li><span class="font-medium">Adresse:</span> 123 Rue Principale, Paris</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Ligne de séparation -->
+    <div class="mt-8 border-t border-gray-700"></div>
+
+    <!-- Bas de page -->
+    <div class="mt-4 flex flex-col sm:flex-row items-center justify-between text-gray-400">
+      <p>&copy; 2024 VotreEntreprise. Tous droits réservés.</p>
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a href="#" class="hover:text-white"><i class="fab fa-facebook-f"></i> Facebook</a>
+        <a href="#" class="hover:text-white"><i class="fab fa-twitter"></i> Twitter</a>
+        <a href="#" class="hover:text-white"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
         <script src={{ asset('app.js') }}></script>
     </body>
 </html>

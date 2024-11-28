@@ -1,22 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello TestController!{% endblock %}
+{% block title %}Brice Privat{% endblock %}
 
-{% block body %}
+{% block body %} 
+<img class="w-full  hidden " src={{ asset('images/symfony.jpg') }} />
+<div style="relative h-full w-full">
+<div class=" md:grid gap-2  md:grid-cols-1   lg:grid-cols-2 xl:grid-cols-3  sm:block">
+    {% for article in articles %}
+  <div class="border-yellow hover:scale-110 transition-transform duration-300 m-10 max-w-sm mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+  <a href="http://localhost:8000/welcome-{{article.id}}?article={{article.id}}">
 
-<div class="example-wrapper">
- <h1 class="text-3xl font-bold ">
-    Hello world Tailwind CSS! 
-  </h1>
-    <h1>Hello {{ controller_name }}! ✅</h1>
-      <p class="text-lm font-medium text-gray-900">Brice</p>
-      <p>Privat</p>
+  <img class="w-full h-48 object-cover" src="https://via.placeholder.com/400x200" alt="Image">
+  <div class="p-4">
+    <h2 class="text-xl font-bold text-gray-800">{{ article.title }}</h2>
+    <p class="mt-2 text-gray-600">
+     {{ article.content }}
+    </p>
+    <div class="mt-4">
+      <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium">Lire la suite →</a>
+    </div>
+  </div>
+    </a>
+  </div>
+  {% else %}
+    <h1>Aucun articles</h1>
+  {% endfor %}
+</div>
+</div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/home/brice/Symfony/learn/src/Controller/TestController.php</code></li>
-        <li>Your template at <code>/home/brice/Symfony/learn/templates/test/index.html.twig</code></li>
-    </ul>
-    <button id="button">Brice Privat</button>
+<div class="hover:scale-105 transform-transition duration-300 p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center gap-x-4">
+  <div class="shrink-0">
+    <img class="size-12" src="/img/logo.svg" alt="ChitChat Logo">
+  </div>
+  <div>
+    <div class=" text-xl font-medium text-black">ChitChat</div>
+    <p class="text-slate-500">You have a new message!</p>
+  </div>
 </div>
 {% endblock %}
